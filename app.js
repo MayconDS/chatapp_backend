@@ -20,7 +20,7 @@ const User = require('./app/models/user')
 
 const io = require('socket.io')(server, {
   cors: {
-    origin: '*',
+    origin: 'https://nocyam.vercel.app',
     credentials: true,
   },
 
