@@ -67,7 +67,7 @@ io.on('connection', async (socket) => {
   })
 })
 
-server.listen(3001, () => {
+server.listen(3001 || 5000, () => {
   console.log('listening on *:3001')
 })
 
