@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
 mongoose.Promise = global.Promise
 
-const uri =
-  'mongodb+srv://mike:nosloko12@chatapp.qyjjmil.mongodb.net/?retryWrites=true&w=majority'
+
+  
 
 mongoose
-  .connect(uri, {
+  .connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
