@@ -38,7 +38,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(
   cors({
-    origin: 'https://nocyam.vercel.app',
+    origin: '*',
     credentials: true,
     methos: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
