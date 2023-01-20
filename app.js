@@ -27,9 +27,18 @@ const io = require('socket.io')(server, {
   maxHttpBufferSize: 1e8,
 })
 
+app.use(function (request, response, next) {
+  next()
+})
+
 app.use((req, res, next) => {
   req.io = io
-  return next()
+  response.header('Access-Control-Allow-Origin', '*')
+  response.header(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, x-acess-token',
+  )
+  next()
 })
 app.use(logger('dev'))
 app.use(express.json())
