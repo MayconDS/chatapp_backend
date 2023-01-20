@@ -42,7 +42,7 @@ app.use(
     credentials: true,
     methos: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
-    allowedHeaders: ['Authorization', 'Content-Type'],
+    allowedHeaders: ['Authorization', 'Content-Type', 'x-acess-token'],
   }),
 )
 
