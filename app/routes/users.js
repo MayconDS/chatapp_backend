@@ -263,7 +263,7 @@ router.post(
         req.user._id,
         {
           $set: {
-            picture: `https://chatapp-backend-taupe.vercel.app/images/${profilePicture.key}`,
+            picture: `https://chatapp-50bm.onrender.com/images/${profilePicture.key}`,
           },
         },
         { upsert: true, new: true },
