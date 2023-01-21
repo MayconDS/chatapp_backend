@@ -29,11 +29,7 @@ const io = require('socket.io')(server, {
 
 app.use((req, res, next) => {
   req.io = io
-  res.header('Access-Control-Allow-Origin', '*')
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept, x-access-token',
-  )
+
   next()
 })
 app.use(logger('dev'))
@@ -47,7 +43,7 @@ app.use(
     credentials: true,
     methos: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
-    allowedHeaders: ['Authorization', 'Content-Type', 'x-acess-token'],
+    allowedHeaders: ['Authorization', 'Content-Type', 'x-access-token'],
   }),
 )
 
