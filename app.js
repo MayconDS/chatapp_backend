@@ -21,7 +21,7 @@ const User = require('./app/models/user')
 const { Server } = require('socket.io')
 const io = new Server(server, {
   cors: {
-    origin: 'https://nocyam.vercel.app',
+    origin: '*',
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     credentials: true,
   },
