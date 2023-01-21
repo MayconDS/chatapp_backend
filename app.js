@@ -18,16 +18,14 @@ var usersRouter = require('./app/routes/users')
 var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
-const { Server } = require('socket.io')
-
-const io = new Server(server, {
+const io = require('socket.io')(server, {
   cors: {
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    origin: 'https://nocyam.vercel.app',
     credentials: true,
   },
+
+  maxHttpBufferSize: 1e8,
 })
-io.listen(server)
 
 app.use((req, res, next) => {
   req.io = io
