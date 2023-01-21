@@ -1,6 +1,6 @@
 {
   "name": "chatapp_api",
-  "version": "1",
+  "version": 2,
   "public": true,
 
   "routes": [
