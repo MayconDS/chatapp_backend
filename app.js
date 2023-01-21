@@ -19,6 +19,7 @@ var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
 const { Server } = require('socket.io')
+
 const io = new Server(server, {
   cors: {
     origin: '*',
@@ -26,6 +27,7 @@ const io = new Server(server, {
     credentials: true,
   },
 })
+io.listen(server)
 
 app.use((req, res, next) => {
   req.io = io
