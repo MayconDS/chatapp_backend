@@ -263,7 +263,7 @@ router.post(
         req.user._id,
         {
           $set: {
-            picture: `https://chatapp-6qeg.onrender.com/images/${profilePicture.key}`,
+            picture: `https://chatapp-backend-0c25.onrender.com/images/${profilePicture.key}`,
           },
         },
         { upsert: true, new: true },
