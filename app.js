@@ -19,7 +19,13 @@ var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
 const { Server } = require('socket.io')
-const io = new Server(server)
+const io = new Server(server, {
+  cors: {
+    origin: 'https://nocyam.vercel.app',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    credentials: true,
+  },
+})
 
 app.use((req, res, next) => {
   req.io = io
