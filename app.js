@@ -18,13 +18,16 @@ var usersRouter = require('./app/routes/users')
 var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
-const io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  },
+const io = require('socket.io')(
+  'https://chatappbackend-production-45fa.up.railway.app',
+  {
+    cors: {
+      origin: '*',
+    },
 
-  maxHttpBufferSize: 1e8,
-})
+    maxHttpBufferSize: 1e8,
+  },
+)
 
 app.use((req, res, next) => {
   req.io = io
