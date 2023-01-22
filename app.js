@@ -23,9 +23,6 @@ const io = require('socket.io')(
   {
     cors: {
       origin: '*',
-      credentials: true,
-      methods: ['GET', 'POST'],
-      allowedHeaders: ['Authorization', 'Content-Type', 'header'],
     },
 
     maxHttpBufferSize: 1e8,
@@ -48,12 +45,7 @@ app.use(
     credentials: true,
     methods: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
-    allowedHeaders: [
-      'Authorization',
-      'Content-Type',
-      'x-access-token',
-      'header',
-    ],
+    allowedHeaders: ['Authorization', 'Content-Type', 'x-access-token'],
   }),
 )
 
