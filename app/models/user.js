@@ -9,7 +9,8 @@ let userSchema = new mongoose.Schema({
   chats: { type: Array },
   picture: {
     type: String,
-    default: 'https://chatapp-backend-992c.onrender.com/images/avatar.webp',
+    default:
+      'https://chatappbackend-production-45fa.up.railway.app/images/avatar.webp',
   },
   email: { type: String, required: true, unique: true },
   password: String,
