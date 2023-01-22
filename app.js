@@ -18,14 +18,6 @@ var usersRouter = require('./app/routes/users')
 var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
-var io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  },
-
-  maxHttpBufferSize: 1e8,
-})
-
 app.use((req, res, next) => {
   req.io = io
 
@@ -54,6 +46,18 @@ app.use(
 app.use('/users', usersRouter)
 app.use('/chat', chatRouter)
 
+server.listen(3001 || 5000, () => {
+  console.log('listening on *:3001')
+})
+
+var io = require('socket.io')(server, {
+  cors: {
+    origin: '*',
+  },
+
+  maxHttpBufferSize: 1e8,
+})
+
 io.on('connection', async (socket) => {
   let user = await User.findOneAndUpdate(
     { _id: socket.handshake.auth.key },
@@ -70,10 +74,6 @@ io.on('connection', async (socket) => {
 
     console.log('user is disconnected')
   })
-})
-
-server.listen(3001 || 5000, () => {
-  console.log('listening on *:3001')
 })
 
 module.exports = app
