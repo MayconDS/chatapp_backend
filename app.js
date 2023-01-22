@@ -22,15 +22,10 @@ const io = require('socket.io')(
   'https://chatappbackend-production-45fa.up.railway.app/',
   {
     cors: {
-      origin: 'https://nocyam.vercel.app',
+      origin: '*',
       credentials: true,
       methods: ['GET', 'POST'],
-      allowedHeaders: [
-        'Authorization',
-        'Content-Type',
-        'x-access-token',
-        'header',
-      ],
+      allowedHeaders: ['Authorization', 'Content-Type', 'header'],
     },
 
     maxHttpBufferSize: 1e8,
@@ -51,7 +46,7 @@ app.use(
   cors({
     origin: '*',
     credentials: true,
-    methos: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
+    methods: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
     allowedHeaders: ['Authorization', 'Content-Type', 'x-access-token'],
   }),
