@@ -45,7 +45,12 @@ app.use(
     credentials: true,
     methods: ['POST', 'GET', 'PUT', 'DELTE', 'OPTIONS'],
     exposedHeaders: ['Authorization'],
-    allowedHeaders: ['Authorization', 'Content-Type', 'x-access-token'],
+    allowedHeaders: [
+      'Authorization',
+      'Content-Type',
+      'x-access-token',
+      'header',
+    ],
   }),
 )
 
