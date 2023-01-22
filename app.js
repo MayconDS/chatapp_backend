@@ -18,7 +18,7 @@ var usersRouter = require('./app/routes/users')
 var chatRouter = require('./app/routes/chat')
 const User = require('./app/models/user')
 
-const io = require('socket.io')(server, {
+var io = require('socket.io')(server, {
   cors: {
     origin: '*',
   },
