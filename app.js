@@ -24,6 +24,13 @@ const io = require('socket.io')(
     cors: {
       origin: 'https://nocyam.vercel.app',
       credentials: true,
+      methods: ['GET', 'POST'],
+      allowedHeaders: [
+        'Authorization',
+        'Content-Type',
+        'x-access-token',
+        'header',
+      ],
     },
 
     maxHttpBufferSize: 1e8,
