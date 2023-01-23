@@ -1,15 +1,9 @@
-var express = require('express')
-var app = express()
-
-var server = app.listen(5000, () => {
-  console.log('listening on *:3001')
-})
-
-var io = require('socket.io').listen(server, {
-  cors: {
-    origin: '*',
-  },
-})
+const express = require('express')
+const app = express()
+const http = require('http')
+const server = http.createServer(app)
+const { Server } = require('socket.io')
+const io = new Server(server)
 
 var path = require('path')
 
