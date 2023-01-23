@@ -1,13 +1,15 @@
 var express = require('express')
 var app = express()
 
-var server = app.listen(5000, ()=> {
+var server = app.listen(5000, () => {
   console.log('listening on *:3001')
 })
 
-
-var io = require('socket.io').listen(server)
-
+var io = require('socket.io').listen(server, {
+  cors: {
+    origin: '*',
+  },
+})
 
 var path = require('path')
 
@@ -50,9 +52,6 @@ app.use(
 
 app.use('/users', usersRouter)
 app.use('/chat', chatRouter)
-
-
-
 
 io.on('connection', async (socket) => {
   let user = await User.findOneAndUpdate(
