@@ -1,8 +1,13 @@
 var express = require('express')
 var app = express()
 
-var http = require('http')
-var server = http.createServer(app)
+var server = app.listen(5000, ()=> {
+  console.log('listening on *:3001')
+})
+
+
+var io = require('socket.io').listen(server)
+
 
 var path = require('path')
 
@@ -46,17 +51,8 @@ app.use(
 app.use('/users', usersRouter)
 app.use('/chat', chatRouter)
 
-server.listen(3001 || 5000, () => {
-  console.log('listening on *:3001')
-})
 
-var io = require('socket.io')(server, {
-  cors: {
-    origin: '*',
-  },
 
-  maxHttpBufferSize: 1e8,
-})
 
 io.on('connection', async (socket) => {
   let user = await User.findOneAndUpdate(
