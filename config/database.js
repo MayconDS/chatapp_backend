@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
-require('dotenv').config('')
-mongoose.Promise = global.Promise
+const mongoose = require("mongoose");
+require("dotenv").config("");
+mongoose.Promise = global.Promise;
 
-mongoose.set('strictQuery', true)
+mongoose.set("strictQuery", true);
 
 mongoose
   .connect(process.env.MONGO_URL, {
@@ -10,8 +10,8 @@ mongoose
     useUnifiedTopology: true,
   })
   .then(() => {
-    console.log('Connected to MongoDB')
+    console.log("Connected in MongoDB");
   })
-  .catch((err) => console.log(err.message))
+  .catch((err) => console.log(err.message));
 
 // mongodb://localhost/chatappDatabase
